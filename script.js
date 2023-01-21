@@ -1,11 +1,21 @@
 const form = document.querySelector("#form-habits")
 const nlwSetup = new NLWSetup(form)
+const button = document.querySelector("header button")
 
-const data = {
-  Academia: ["01-01", "01-02", "01-03", "01-04", "01-05", "01-06"],
-  Remedio: ["01-03"],
-  Estudo: ["01-01", "01-02", "01-03"],
+button.addEventListener("click", add)
+
+function add() {
+  const today = "01/01"
+
+  const dayExists = nlwSetup.dayExists(today)
+
+  if (dayExists) {
+    alert("Dia já incluso")
+    return
+  }
+
+  nlwSetup.addDay("01/01")
 }
 
-nlwSetup.setData(data)
-nlwSetup.load()
+/* nlwSetup.setData(data)
+nlwSetup.load() */
